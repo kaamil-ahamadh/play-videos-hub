@@ -1,16 +1,19 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 
 import GlobalContext from "./context/GlobalContext";
 import { HomeScreen, VideoDetailsScreen, ErrorScreen } from "../src/screens";
-import { Header, Footer, Loading } from "../src/components";
+import { Header, Footer, Loading, SearchQuery } from "../src/components";
 
 function App() {
   /* States */
 
   //Loading
   const [loading, setLoading] = useState(true);
+
+  // Global States
+  const [userSearch, setUserSearch] = useState("");
 
   useEffect(() => {
     setTimeout(() => {
@@ -24,7 +27,10 @@ function App() {
 
   return (
     <div className="app-container">
-      <Header />
+      <div>
+        <Header />
+        <SearchQuery userSearch={userSearch} setUserSearch={setUserSearch} />
+      </div>
       <div className="screen-container">
         <GlobalContext.Provider value={{}}>
           <Routes>
