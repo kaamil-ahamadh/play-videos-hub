@@ -1,10 +1,19 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import GlobalContext from "../context/GlobalContext";
 import { VideoCardResults } from "../components";
+import { useNavigate } from "react-router-dom";
 
 const SearchResultsScreen = () => {
   const { searchResults } = useContext(GlobalContext);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    window.onpopstate = () => {
+      navigate("/");
+    };
+  }, []);
   return (
     <div>
       <div className="trending-title">Search Results</div>
