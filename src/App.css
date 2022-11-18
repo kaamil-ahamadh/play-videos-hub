@@ -131,6 +131,7 @@ input {
 
 .video-wrapper {
   flex-direction: row;
+  justify-content: center;
 }
 
 .play-image-icon {

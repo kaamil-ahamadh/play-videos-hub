@@ -1,13 +1,20 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 
 import GlobalContext from "./context/GlobalContext";
-import { HomeScreen, VideoDetailsScreen, ErrorScreen } from "../src/screens";
+import {
+  HomeScreen,
+  VideoDetailsScreen,
+  ErrorScreen,
+  SearchResultsScreen,
+} from "../src/screens";
 import { Header, Footer, Loading, SearchQuery } from "../src/components";
 import { youtubeApiSearch, youtubeApiTrending } from "./apis/youtubeApi";
 
 function App() {
+  //Navigate
+  const navigate = useNavigate();
   /* States */
 
   //Loading
@@ -41,7 +48,11 @@ function App() {
   const handleSearchApi = async (userSearch) => {
     try {
       const response = await youtubeApiSearch(userSearch);
-      console.log(response.data.items);
+      setSearchResults(response.data.items);
+      setUserSearch("");
+
+      //Navigate
+      navigate(`/search/${userSearch}`);
     } catch (error) {
       console.log(error);
     }
@@ -62,10 +73,16 @@ function App() {
         />
       </div>
       <div className="screen-container">
-        <GlobalContext.Provider value={{ trendingVideos, setTrendingVideos }}>
+        <GlobalContext.Provider
+          value={{ trendingVideos, setTrendingVideos, searchResults }}
+        >
           <Routes>
             <Route path="/" element={<HomeScreen />} />
             <Route path="/video/:title" element={<VideoDetailsScreen />} />
+            <Route
+              path="/search/:searchQuery"
+              element={<SearchResultsScreen />}
+            />
             <Route path="*" element={<ErrorScreen />} />
           </Routes>
         </GlobalContext.Provider>

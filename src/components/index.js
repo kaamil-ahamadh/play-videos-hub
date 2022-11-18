@@ -3,3 +3,4 @@ export { default as Footer } from "./Footer";
 export { default as Loading } from "./Loading";
 export { default as SearchQuery } from "./SearchQuery";
 export { default as VideoCard } from "./VideoCard";
+export { default as VideoCardResults } from "./VideoCardResults";

@@ -5,6 +5,7 @@ import GlobalContext from "../context/GlobalContext";
 
 const HomeScreen = () => {
   const { trendingVideos } = useContext(GlobalContext);
+
   return (
     <div>
       <div className="trending-title">Trending Videos</div>

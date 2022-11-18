@@ -25,7 +25,7 @@ export const youtubeApiSearch = async (searchQuery) => {
         part: "snippet,id",
         regionCode: "IN",
         maxResults: "50",
-        order: "date",
+        order: "relevance",
       },
       headers: {
         "X-RapidAPI-Key": process.env.REACT_APP_YOUTUBE_RAPID_API_KEY,
