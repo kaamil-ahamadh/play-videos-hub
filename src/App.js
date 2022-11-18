@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import GlobalContext from "./context/GlobalContext";
 import { HomeScreen, VideoDetailsScreen, ErrorScreen } from "../src/screens";
 import { Header, Footer, Loading, SearchQuery } from "../src/components";
+import { youtubeApiTrending } from "./apis/youtubeApi";
 
 function App() {
   /* States */
@@ -12,14 +13,27 @@ function App() {
   //Loading
   const [loading, setLoading] = useState(true);
 
-  // Global States
+  //Search
   const [userSearch, setUserSearch] = useState("");
 
+  // Global States
+
+  //UseEffect
   useEffect(() => {
+    handleTrendingApi();
     setTimeout(() => {
       setLoading(false);
     }, 1000);
   }, []);
+
+  const handleTrendingApi = async () => {
+    try {
+      const response = await youtubeApiTrending();
+      console.log(response.data.contents);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   if (loading) {
     return <Loading />;
