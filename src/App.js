@@ -47,12 +47,15 @@ function App() {
 
   const handleSearchApi = async (userSearch) => {
     try {
+      setLoading(true);
       const response = await youtubeApiSearch(userSearch);
       setSearchResults(response.data.items);
       setUserSearch("");
 
       //Navigate
       navigate(`/search/${userSearch}`);
+
+      setLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -74,7 +77,11 @@ function App() {
       </div>
       <div className="screen-container">
         <GlobalContext.Provider
-          value={{ trendingVideos, setTrendingVideos, searchResults }}
+          value={{
+            trendingVideos,
+            setTrendingVideos,
+            searchResults,
+          }}
         >
           <Routes>
             <Route path="/" element={<HomeScreen />} />
