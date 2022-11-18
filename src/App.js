@@ -17,6 +17,7 @@ function App() {
   const [userSearch, setUserSearch] = useState("");
 
   // Global States
+  const [trendingVideos, setTrendingVideos] = useState([]);
 
   //UseEffect
   useEffect(() => {
@@ -29,7 +30,7 @@ function App() {
   const handleTrendingApi = async () => {
     try {
       const response = await youtubeApiTrending();
-      console.log(response.data.contents);
+      setTrendingVideos(response.data.contents);
     } catch (error) {
       console.log(error);
     }
@@ -46,7 +47,7 @@ function App() {
         <SearchQuery userSearch={userSearch} setUserSearch={setUserSearch} />
       </div>
       <div className="screen-container">
-        <GlobalContext.Provider value={{}}>
+        <GlobalContext.Provider value={{ trendingVideos, setTrendingVideos }}>
           <Routes>
             <Route path="/" element={<HomeScreen />} />
             <Route path="/video/:title" element={<VideoDetailsScreen />} />
