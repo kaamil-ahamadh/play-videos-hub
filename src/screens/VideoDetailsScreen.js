@@ -1,13 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import GlobalContext from "../context/GlobalContext";
 import { youtubeApiVideoDetails } from "../apis/youtubeApi";
 import { VideoPlayCard } from "../components";
 
 const VideoDetailsScreen = () => {
   const { id, title } = useParams();
-  const { setLoading } = useContext(GlobalContext);
 
   const [video, setVideo] = useState({});
 
