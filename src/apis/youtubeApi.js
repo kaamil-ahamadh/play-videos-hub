@@ -37,6 +37,23 @@ export const youtubeApiSearch = async (searchQuery) => {
   }
 };
 
+export const youtubeApiVideoDetails = async (videoId) => {
+  try {
+    return await axios.get("https://youtube-v31.p.rapidapi.com/videos", {
+      params: {
+        part: "contentDetails,snippet,statistics",
+        id: videoId,
+      },
+      headers: {
+        "X-RapidAPI-Key": process.env.REACT_APP_YOUTUBE_RAPID_API_KEY,
+        "X-RapidAPI-Host": process.env.REACT_APP_YOUTUBE_V3_API_HOST,
+      },
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const youtubeApiRelated = async (videoId) => {
   try {
     return await axios.get("https://youtube-v31.p.rapidapi.com/search", {

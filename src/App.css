@@ -133,12 +133,50 @@ input {
 .video-wrapper {
   flex-direction: row;
   justify-content: center;
+  cursor: pointer;
 }
 
 .play-image-icon {
   position: absolute;
   top: 140px;
   left: 40%;
+}
+
+.card-play-video {
+  background: #041938;
+  color: white;
+  padding: 2px;
+  border-radius: 25px;
+  width: 90vw;
+  height: 500px;
+}
+
+.card-play-video:hover {
+  transform: scale(1.03);
+}
+
+.iframe-rounded {
+  border-radius: 25px;
+}
+
+.play-video-container {
+  height: 300px;
+  width: 100%;
+}
+
+.play-video-details {
+  padding: 0 16px;
+}
+
+.video-text-bold {
+  font-weight: bold;
+}
+
+.play-video-description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 75ch;
+  white-space: nowrap;
 }
 
 /* Responsive Website */
@@ -152,5 +190,12 @@ input {
   .video-wrapper {
     display: inline-block;
     margin-left: 12px;
+  }
+}
+
+@media screen and (min-width: 450px) {
+  .card-play-video {
+    width: 65vw;
+    height: 450px;
   }
 }

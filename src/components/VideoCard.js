@@ -1,9 +1,16 @@
 import React from "react";
 import { MdOutlineSlowMotionVideo } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 const VideoCard = ({ data }) => {
+  const navigate = useNavigate();
   return (
-    <div className="video-wrapper">
+    <div
+      className="video-wrapper"
+      onClick={() => {
+        navigate(`/video/${data.video.videoId}/${data.video.title}`);
+      }}
+    >
       <div className="card-container">
         <div className="card-video">
           <img

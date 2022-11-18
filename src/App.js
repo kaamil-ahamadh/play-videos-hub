@@ -79,11 +79,12 @@ function App() {
             trendingVideos,
             setTrendingVideos,
             searchResults,
+            setLoading,
           }}
         >
           <Routes>
             <Route path="/" element={<HomeScreen />} />
-            <Route path="/video/:title" element={<VideoDetailsScreen />} />
+            <Route path="/video/:id/:title" element={<VideoDetailsScreen />} />
             <Route
               path="/search/:searchQuery"
               element={<SearchResultsScreen />}

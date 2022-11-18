@@ -1,10 +1,17 @@
 import React from "react";
 import { MdOutlineSlowMotionVideo } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 import { format } from "timeago.js";
 
 const VideoCardResults = ({ data }) => {
+  const navigate = useNavigate();
   return (
-    <div className="video-wrapper">
+    <div
+      className="video-wrapper"
+      onClick={() => {
+        navigate(`/video/${data.id.videoId}/${data.snippet.title}`);
+      }}
+    >
       <div className="card-container">
         <div className="card-video">
           <img
