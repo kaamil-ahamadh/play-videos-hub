@@ -30,9 +30,6 @@ function App() {
   //UseEffect
   useEffect(() => {
     handleTrendingApi();
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000);
   }, []);
 
   //APIs
@@ -40,6 +37,7 @@ function App() {
     try {
       const response = await youtubeApiTrending();
       setTrendingVideos(response.data.contents);
+      setLoading(false);
     } catch (error) {
       console.log(error);
     }
