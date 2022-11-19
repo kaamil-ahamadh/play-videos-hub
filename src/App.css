@@ -211,4 +211,20 @@ input {
     left: 16px;
     bottom: 25px;
   }
+
+  .related-videos {
+    margin-top: 5vh;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .related-videos {
+    margin-top: 25vh;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .related-videos {
+    margin-top: 35vh;
+  }
 }

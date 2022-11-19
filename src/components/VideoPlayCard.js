@@ -1,18 +1,30 @@
 import React from "react";
+import Plyr from "plyr-react";
+import "plyr-react/plyr.css";
 
 const VideoPlayCard = ({ id, title, description, channelName }) => {
   return (
     <div className="card-play-video">
       <div className="play-video-container">
         <div>
-          <iframe
+          {/* <iframe
             width="100%"
-            // height="280px"
             src={`https://www.youtube.com/embed/${id}`}
             title="YouTube Video Player"
             frameBorder="0"
             className="iframe"
-          ></iframe>
+          ></iframe> */}
+          <Plyr
+            source={{
+              type: "video",
+              sources: [
+                {
+                  src: id,
+                  provider: "youtube",
+                },
+              ],
+            }}
+          />
         </div>
       </div>
       <div className="play-video-details">

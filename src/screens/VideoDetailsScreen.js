@@ -28,14 +28,14 @@ const VideoDetailsScreen = () => {
   return (
     <>
       {video?.length > 0 && relatedVideos?.length > 0 ? (
-        <>
+        <div className="video-player-container">
           <VideoPlayCard
             id={id}
             title={video[0].snippet.title}
             description={video[0].snippet.description}
             channelName={video[0].snippet.channelTitle}
           />
-          <div>
+          <div className="related-videos">
             <br />
             <br />
             <br />
@@ -45,7 +45,7 @@ const VideoDetailsScreen = () => {
               return <VideoCardResults data={video} key={index} />;
             })}
           </div>
-        </>
+        </div>
       ) : (
         <div>Video Loading...</div>
       )}
