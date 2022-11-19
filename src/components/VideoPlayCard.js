@@ -7,11 +7,11 @@ const VideoPlayCard = ({ id, title, description, channelName }) => {
         <div>
           <iframe
             width="100%"
-            height="280px"
+            // height="280px"
             src={`https://www.youtube.com/embed/${id}`}
             title="YouTube Video Player"
             frameBorder="0"
-            className="iframe-rounded"
+            className="iframe"
           ></iframe>
         </div>
       </div>

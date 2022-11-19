@@ -155,8 +155,9 @@ input {
   transform: scale(1.03);
 }
 
-.iframe-rounded {
+.iframe {
   border-radius: 25px;
+  height: 280px;
 }
 
 .play-video-container {
@@ -195,7 +196,19 @@ input {
 
 @media screen and (min-width: 450px) {
   .card-play-video {
-    width: 65vw;
-    height: 450px;
+    width: 95vw;
+    height: 580px;
+    color: aqua;
+    position: relative;
+  }
+
+  .iframe {
+    height: 600px;
+  }
+
+  .play-video-details {
+    position: absolute;
+    left: 16px;
+    bottom: 25px;
   }
 }

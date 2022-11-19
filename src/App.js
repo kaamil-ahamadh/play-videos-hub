@@ -79,6 +79,7 @@ function App() {
             trendingVideos,
             setTrendingVideos,
             searchResults,
+            loading,
             setLoading,
           }}
         >
