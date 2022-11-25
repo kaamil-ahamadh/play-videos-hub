@@ -62,10 +62,12 @@ input {
   border: 5px solid dodgerblue;
   margin-bottom: 16px;
   position: relative;
+  transition: transform 0.5s;
 }
 
 .card-video:hover {
-  transform: scale(1.03);
+  transform: scale(1.15);
+  z-index: 100;
 }
 
 .app-container {
@@ -149,10 +151,12 @@ input {
   border-radius: 25px;
   width: 90vw;
   height: 500px;
+  transition: transform 0.5s;
 }
 
 .card-play-video:hover {
-  transform: scale(1.03);
+  transform: scale(1.15);
+  z-index: 100;
 }
 
 .iframe {
@@ -214,6 +218,14 @@ input {
 
   .related-videos {
     margin-top: 5vh;
+  }
+
+  .card-video:hover {
+    transform: scale(1.2);
+  }
+
+  .card-play-video:hover {
+    transform: scale(1.2);
   }
 }
 
