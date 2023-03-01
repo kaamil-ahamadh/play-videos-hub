@@ -9,13 +9,16 @@ const HomeScreen = () => {
   return (
     <div>
       <div className="trending-title">Trending Videos</div>
-      {trendingVideos?.length > 0 ? (
-        trendingVideos.map((video, index) => {
-          return <VideoCard data={video} key={index} />;
-        })
-      ) : (
-        <div>Videos Not Found</div>
-      )}
+
+      <div className="video-container">
+        {trendingVideos?.length > 0 ? (
+          trendingVideos.map((video, index) => {
+            return <VideoCard data={video} key={index} />;
+          })
+        ) : (
+          <div>Videos Not Found</div>
+        )}
+      </div>
     </div>
   );
 };
